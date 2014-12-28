@@ -63,7 +63,7 @@ public final class ItemManager {
     
     /**
      * Gets a colon delimited string representation of all modules on the item
-     * @param item
+     * @param item - item
      * @return A string representation of the modules on the item, or null if none exists
      */
     public String getModules(ItemStack item) {
@@ -72,8 +72,8 @@ public final class ItemManager {
     
     /**
      * Writes a colon delimited string of module UUIDs to the item
-     * @param modules 
-     * @param item
+     * @param modules - modules
+     * @param item - item
      */
     public void saveModules(String modules, ItemStack item) {
         NBTUtil.writeData(MODULE_STORAGE_KEY, modules, item);
@@ -149,7 +149,7 @@ public final class ItemManager {
      */
     public void refresh(CacheKey key) {
         try {
-            this.cache.get().get(key);
+            (this.cache.get()).get(key);
         } catch (ExecutionException e) {
             e.printStackTrace();
         }        

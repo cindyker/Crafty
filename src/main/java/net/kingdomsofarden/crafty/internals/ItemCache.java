@@ -3,11 +3,7 @@ package net.kingdomsofarden.crafty.internals;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.RemovalListener;
-import com.google.common.cache.RemovalNotification;
+import com.google.common.cache.*;
 
 import net.kingdomsofarden.crafty.Crafty;
 import net.kingdomsofarden.crafty.api.CraftyItem;
@@ -24,7 +20,7 @@ public class ItemCache {
 
     }
 
-    private Cache<CacheKey, CraftyItem> cache;
+    private LoadingCache<CacheKey, CraftyItem> cache;
     private Crafty plugin;
     
     public ItemCache(Crafty itemApiPlugin) {
@@ -52,7 +48,7 @@ public class ItemCache {
         
     }
     
-    public Cache<CacheKey,CraftyItem> get() {
+    public LoadingCache<CacheKey,CraftyItem> get() {
         return this.cache;
     }
 }
